@@ -2,11 +2,12 @@ from email.mime import audio
 import os
 import streamlit as st
 import google.generativeai as genai
-# from google.cloud import texttospeech
+from dotenv import load_dotenv
 
-os.environ["GOOGLE_API_KEY"] = "AIzaSyCtF9ZrpFty_2LnjknOnaxA9GJ1L4XhiA8"
+load_dotenv()  
+api_key = os.getenv('API_KEY')
 
-genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-pro')
 
 # tts_client = texttospeech.TextToSpeechClient()
